@@ -24,6 +24,8 @@ jobs:
       run: dotnet workload update
     - name: Install Aspire Workload
       run: dotnet workload install aspire
+    - name: Update Aspire Workload
+      run: dotnet workload update
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
