@@ -1,0 +1,54 @@
+﻿@page "/"
+@attribute [StreamRendering]
+@attribute [OutputCache(Duration = 5)]
+
+@inject PostsApiClient PostsClient
+
+<PageTitle>Posts</PageTitle>
+
+<h1>Posts</h1>
+
+<p>This component demonstrates showing data loaded from a backend API service.</p>
+
+@if (_postResponses == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Description</th>
+                <th>Name</th>
+                <th>Surname</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var posts in _postResponses)
+            {
+                <tr>
+                    <td>@posts.Title</td>
+                    <td>@posts.Content</td>
+                    <td>@posts.Description</td>
+                    <td>@posts?.Author?.Name</td>
+                    <td>@posts?.Author?.Surname</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private PostResponse[]? _postResponses;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _postResponses = await PostsClient.GetPostsAsync();
+    }
+
+}

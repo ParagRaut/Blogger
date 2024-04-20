@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>4ed8eada-474e-4448-9612-b843b6000e1c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blogger.ApiService\Blogger.ApiService.csproj" />
+    <ProjectReference Include="..\Blogger.Web\Blogger.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.0-preview.5.24201.12" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="8.0.0-preview.5.24201.12" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="8.0.0-preview.5.24201.12" />
+  </ItemGroup>
+
+</Project>
